@@ -12,3 +12,18 @@ line-length = 88
 testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
 addopts = "-v"
+
+[tool.mypy]
+files=["src","tests"]
+strict = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_globals = true
+warn_return_any = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unreachable = true
+no_implicit_optional = true
+ignore_missing_imports=true
