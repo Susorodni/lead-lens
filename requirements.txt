@@ -1,0 +1,11 @@
+black
+isort
+flake8
+mypy
+pytest
+pytest-cov
+cookiecutter
+pandas
+openpyxl
+pyinstaller
+PySide6
