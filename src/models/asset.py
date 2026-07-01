@@ -15,6 +15,6 @@ class Asset:
 
     def get(self, key: str, default=None):
         return self.data.get(key, default)
-    
+
     def set(self, key: str, value: object):
         self.data[key] = value
