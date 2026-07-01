@@ -1,6 +1,7 @@
 """asset.py"""
 
 from dataclasses import dataclass
+from typing import Any, Hashable
 
 
 @dataclass
@@ -10,7 +11,10 @@ class Asset:
     properties of one service address entry.
     """
 
-    data: dict[str, object]
+    data: dict[Hashable, Any]
 
-    def __getattr__(self, name: str) -> object:
-        return self.data.get(name)
+    def get(self, key: str, default=None):
+        return self.data.get(key, default)
+    
+    def set(self, key: str, value: object):
+        self.data[key] = value
