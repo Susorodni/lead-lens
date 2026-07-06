@@ -12,6 +12,8 @@ from operations.filter_operation import FilterOperation
 from services.exporter import ExportService
 from services.importer import ImportService
 
+import pandas as pd
+
 
 class MainWindow(QMainWindow):
 
@@ -50,9 +52,9 @@ class MainWindow(QMainWindow):
         if not path:
             return
 
-        assets = ImportService.import_file(path)
+        assets_df: pd.DataFrame = ImportService.import_file(path)
 
-        self.asset_manager.load_assets(assets)
+        self.asset_manager.load_assets(assets_df)
 
     def filter_file(self):
         operation = FilterOperation("Public Material", "Copper")

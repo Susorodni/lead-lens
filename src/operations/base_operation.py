@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
-from typing import List
 
-from models.asset import Asset
+import pandas as pd
 
 
 class BaseOperation(ABC):
@@ -12,5 +11,5 @@ class BaseOperation(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def execute(self, assets: List[Asset]) -> List[Asset]:
+    def execute(self, df: pd.DataFrame) -> pd.DataFrame:
         raise NotImplementedError

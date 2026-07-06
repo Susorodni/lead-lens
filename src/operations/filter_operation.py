@@ -1,6 +1,4 @@
-from typing import List
-
-from models.asset import Asset
+import pandas as pd
 
 from .base_operation import BaseOperation
 
@@ -15,5 +13,5 @@ class FilterOperation(BaseOperation):
     def name(self):
         return "Filter"
 
-    def execute(self, assets: List[Asset]):
-        return [asset for asset in assets if asset.get(self.field) == self.value]
+    def execute(self, df: pd.DataFrame):
+        return df[df[self.field] == self.value]
